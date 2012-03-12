@@ -11,3 +11,6 @@ config/*.sphinx.conf
 config/initializers/development_mail.rb
 db/sphinx
 public/assets
+/vendor/bundle
+*~
+tags
