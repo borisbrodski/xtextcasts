@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
 gem "rails", "3.0.10"
-gem "mysql2"
+gem "mysql2", "< 0.3"
+#gem "activerecord-mysql2-adapter"
 gem "redcarpet"
 gem "coderay"
 gem "thinking-sphinx", ">= 2.0.1", :require => "thinking_sphinx"
@@ -33,4 +34,8 @@ group :development do
   gem "thin"
   gem "nifty-generators"
   gem "capistrano"
+end
+
+group :development do
+  gem 'pg'
 end
