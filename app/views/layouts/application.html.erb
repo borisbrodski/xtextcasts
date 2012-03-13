@@ -15,18 +15,27 @@
     <div id="top">
       <div class="logo"><%= link_to image_tag("xtextcasts_logo.png", :size => "423x56", :alt => "RailsCasts - Ruby on Rails Screencasts"), root_path %></div>
       <ul class="subscribe horizontal">
+        <% if false %>
+TODO Add itunes link
         <li>
           <%= link_to image_tag("icons/itunes.png", :size => "34x34"), "http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=218282043" %>
           <span class="name">watch on iTunes</span>
         </li>
+        <% end %>
+        <% if false %>
+TODO Add twitter link
         <li>
           <%= link_to image_tag("icons/twitter.png", :size => "34x34"), "http://twitter.com/railscasts" %>
           <span class="name">follow on Twitter</span>
         </li>
+        <% end %>
+        <% if false %>
+TODO Add Facebook link
         <li>
           <%= link_to image_tag("icons/facebook.png", :size => "34x34"), "http://www.facebook.com/pages/railscasts/197415140659" %>
           <span class="name">follow on Facebook</span>
         </li>
+        <% end %>
         <li>
           <%= link_to image_tag("icons/rss.png", :size => "34x34"), "http://feeds.feedburner.com/railscasts" %>
           <span class="name">subscribe to RSS feed</span>
