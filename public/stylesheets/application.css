@@ -167,10 +167,10 @@ label.check_box {
   padding: 8px 100px;
   background-color: #333;
   border-top: solid 1px #FFF;
-  background: -webkit-gradient(linear, left top, left bottom, from(#5C5C5C), to(#111));
-  background: -moz-linear-gradient(top,  #5C5C5C, #111);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5C5C5C', endColorstr='#111');
-  border-bottom: solid 3px #DE9F00;
+  background: -webkit-gradient(linear, left top, left bottom, from(#1b5981), to(#002035));
+  background: -moz-linear-gradient(top,  #1b5981, #002035);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1b5981', endColorstr='#002035');
+  border-bottom: solid 3px #717e87;
   margin-bottom: 15px;
 }
 
@@ -277,7 +277,7 @@ label.check_box {
 }
 
 .full h2, .episode h2 a {
-  color: #E98C08;
+  color: #717e87;
 }
 
 .full h2 {
