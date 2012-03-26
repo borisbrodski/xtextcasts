@@ -1,0 +1,8 @@
+<%- if @ok -%>
+  <h3>Thank you. You will be notified.</h3>
+ <%- else -%>
+  <h3>Invalid email provided.</h3>
+<%- end -%>
+<div>
+  <%= link_to "Continue", "/" %>
+</div>
