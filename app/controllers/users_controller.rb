@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     omniauth = request.env["omniauth.auth"]
     logger.info omniauth.inspect
-    @user = User.find_by_github_uid(omniauth["uid"]) || User.create_from_omniauth(omniauth)
+    @user = User.find_by_github_uid(omniauth["uid"].to_s) || User.create_from_omniauth(omniauth)
     cookies.permanent[:token] = @user.token
     redirect_to_target_or_default root_url, :notice => "Signed in successfully"
   end
