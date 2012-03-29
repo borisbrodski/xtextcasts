@@ -13,7 +13,7 @@
   </head>
   <body>
     <div id="top">
-      <div class="logo"><%= link_to image_tag("xtextcasts_logo.png", :size => "423x56", :alt => "RailsCasts - Ruby on Rails Screencasts"), root_path %></div>
+      <div class="logo"><%= link_to image_tag("xtextcasts_logo.png", :size => "423x56", :alt => "XtextCasts - Xtext Screencasts"), root_path %></div>
       <ul class="subscribe horizontal">
         <% if false %>
 TODO Add itunes link
@@ -22,13 +22,10 @@ TODO Add itunes link
           <span class="name">watch on iTunes</span>
         </li>
         <% end %>
-        <% if false %>
-TODO Add twitter link
         <li>
-          <%= link_to image_tag("icons/twitter.png", :size => "34x34"), "http://twitter.com/railscasts" %>
+          <%= link_to image_tag("icons/twitter.png", :size => "34x34"), "http://twitter.com/BorisBrodski" %>
           <span class="name">follow on Twitter</span>
         </li>
-        <% end %>
         <% if false %>
 TODO Add Facebook link
         <li>
@@ -36,17 +33,20 @@ TODO Add Facebook link
           <span class="name">follow on Facebook</span>
         </li>
         <% end %>
+        <% if false %>
+TODO Add Facebook link
         <li>
           <%= link_to image_tag("icons/rss.png", :size => "34x34"), "http://feeds.feedburner.com/railscasts" %>
           <span class="name">subscribe to RSS feed</span>
         </li>
+        <% end %>
       </ul>
     </div>
 
     <div id="nav_bar">
       <ul class="nav horizontal">
         <li><%= link_to_unless_current "Browse Episodes", root_url %></li>
-        <li><%= link_to_unless_current "About RailsCasts", about_path %></li>
+        <li><%= link_to_unless_current "About XtextCasts", about_path %></li>
         <li><%= link_to_unless_current "Feedback", feedback_path %></li>
         <% if can? :index, :comments %>
           <li><%= link_to_unless_current "Recent Comments", comments_path %></li>
@@ -71,7 +71,7 @@ TODO Add Facebook link
     </div>
     <div id="footer">
       <div class="inner">
-        &copy;This site is <%= link_to "open source", "https://github.com/borisbrodski/xtextcasts" %>, clone of the <%= link_to "Railscasts", "https://github.com/ryanb/railscasts" %>.
+        &copy;This site is <%= link_to "open source", "https://github.com/borisbrodski/xtextcasts" %>, clone of the <%= link_to "Railscasts", "http://railscasts.com/" %> (on <%= link_to "Hithub", "https://github.com/ryanb/railscasts" %>).
       </div>
     </div>
 
