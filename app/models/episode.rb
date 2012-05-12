@@ -82,7 +82,9 @@ class Episode < ActiveRecord::Base
   end
 
   def asset_url(path, ext = nil)
-    "http://media.railscasts.com/assets/episodes/#{path}/#{asset_name}" + (ext ? ".#{ext}" : "")
+#    "http://media.railscasts.com/assets/episodes/#{path}/#{asset_name}" + (ext ? ".#{ext}" : "")
+#    "http://localhost:3000/assets/episodes/#{path}/#{asset_name}" + (ext ? ".#{ext}" : "") #TODO CHANGE LOCALHOST TO SOMETHING MORE RELAYBLE!
+    "http://xtextcasts.org/assets/episodes/#{path}/#{asset_name}" + (ext ? ".#{ext}" : "")
   end
 
   def padded_position
@@ -143,7 +145,9 @@ class Episode < ActiveRecord::Base
   end
 
   def fetch_file_size(path)
+    puts "Fetching #{path}"
     url = URI.parse(path)
+    puts "Host: #{url.host}"
     response = Net::HTTP.start(url.host, url.port) do |http|
       http.request_head(url.path)
     end
