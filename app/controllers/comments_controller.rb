@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  protect_from_forgery :except => :destroy
   load_and_authorize_resource
 
   def index
