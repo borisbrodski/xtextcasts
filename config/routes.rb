@@ -3,7 +3,6 @@ class BetaRedirectConstraint
   BETA_CODE = APP_CONFIG["beta_code"]
 
   def matches?(request)
-#    debugger
     cookies = request.cookie_jar
     params = request.query_parameters
 
@@ -43,6 +42,7 @@ Railscasts::Application.routes.draw do
   match "moderators" => "info#moderators", :as => "moderators"
   match "login" => "users#login", :as => "login"
   match "logout" => "users#logout", :as => "logout"
+  match "auth/failure" => "users#failure", :as => "logout"
   match "feedback" => "feedback_messages#new", :as => "feedback"
   match "episodes/archive" => redirect("/?view=list")
   match 'unsubscribe/:token' => 'users#unsubscribe', :as => "unsubscribe"

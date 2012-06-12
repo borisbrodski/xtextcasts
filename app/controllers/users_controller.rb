@@ -37,6 +37,11 @@ class UsersController < ApplicationController
     redirect_to root_url, :notice => "You have been logged out."
   end
 
+  def failure
+    cookies.delete(:token)
+    redirect_to root_url, :alert => "Authentification error"
+  end
+
   def ban
     @user = User.find(params[:id])
     @user.update_attribute(:banned_at, Time.now)
