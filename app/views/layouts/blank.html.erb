@@ -2,10 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><%= content_for?(:title) ? yield(:title) : "Ruby on Rails Screencasts" %> - RailsCasts</title>
-    <meta name="description" content="Short Ruby on Rails screencasts containing tips, tricks and tutorials. Great for both novice and experienced web developers." />
-    <meta name="keywords" content="rails, ruby on rails, screencasts, railscast, railscasts, tips, tricks, tutorials, training, podcasts, programming" />
-    <link rel="alternate" type="application/rss+xml" title="Episodes RSS" href="http://feeds.feedburner.com/railscasts" />
+    <title><%= content_for?(:title) ? yield(:title) : "Xtext Screencasts" %> - RailsCasts</title>
+    <meta name="description" content="Short Xtext screencasts containing tips, tricks and tutorials. Great for both novice and experienced web developers." />
+    <meta name="keywords" content="xtext, java, eclipse, screencasts, xtextcast, xtextcasts, tips, tricks, tutorials, training, podcasts, programming, dsl, code generation" />
+    <%- if false -%>
+      TODO!!!
+      <link rel="alternate" type="application/rss+xml" title="Episodes RSS" href="http://feeds.feedburner.com/railscasts" />
+    <%- end -%>
     <%= stylesheet_link_tag "application", "coderay" %>
     <%= javascript_include_tag "jquery.min", "rails", "http://cdn.sublimevideo.net/js/3s7oes9q.js", "application" %>
     <%= csrf_meta_tag %>

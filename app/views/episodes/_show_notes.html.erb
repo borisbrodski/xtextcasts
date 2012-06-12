@@ -9,12 +9,16 @@
       <%= link_to "Read on ASCIIcasts", "http://asciicasts.com/episodes/#{@episode.to_param}" %>
     </span>
   <% end %>
+  <%
+=begin %>
   <% if @episode.file_sizes && @episode.file_sizes["zip"] %>
     <span class="browse_code">
       <%= image_tag "icons/browse_code.png", :size => "22x21", :class => "icon" %>
       <%= link_to "Browse Source Code", "http://github.com/railscasts/episode-#{@episode.position}" %>
     </span>
   <% end %>
+<%
+=end %>
 </div>
 
 <div class="show_notes">

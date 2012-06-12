@@ -4,8 +4,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><%= content_for?(:title) ? yield(:title) : "Xtext Screencasts" %> - XtextCasts</title>
     <meta name="description" content="Short Xtext screencasts containing tips, tricks and tutorials. Great for both novice and experienced java developers." />
-    <meta name="keywords" content="java, java ee, Xtext, Xtend, screencasts, xtextcast, xtextcasts, tips, tricks, tutorials, training, podcasts, programming, code generation" />
+    <meta name="keywords" content="java, java ee, Xtext, Xtend, screencasts, xtextcast, xtextcasts, tips, tricks, tutorials, training, podcasts, programming, dsl, code generation" />
+    <%- if false -%>
     <!--    <link rel="alternate" type="application/rss+xml" title="Episodes RSS" href="http://feeds.feedburner.com/railscasts" /> -->
+    <%- end -%>
     <%= stylesheet_link_tag "application", "coderay" %>
     <%= javascript_include_tag "jquery.min", "rails", "http://cdn.sublimevideo.net/js/b4ae8p1n.js", "application" %>
     <%= csrf_meta_tag %>
