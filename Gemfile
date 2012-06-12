@@ -10,6 +10,7 @@ gem "whenever", :require => false
 gem "will_paginate", ">= 3.0.pre2"
 gem "jquery-rails"
 gem "omniauth", ">= 0.2.2"
+gem "omniauth-github"
 gem "exception_notification", :git => "git://github.com/rails/exception_notification.git", :require => "exception_notifier"
 gem "ancestry"
 gem "cancan", :git => "git://github.com/ryanb/cancan.git", :branch => "2.0"

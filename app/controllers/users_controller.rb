@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   def failure
     cookies.delete(:token)
-    redirect_to root_url, :alert => "Authentification error"
+    redirect_to root_url, :alert => "Authentification error: #{params[:message]}"
   end
 
   def ban

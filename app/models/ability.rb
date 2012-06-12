@@ -10,6 +10,7 @@ class Ability
     can [:read, :create, :login, :unsubscribe], :users
     can :create, :emails
 
+    can :failure, :users
     if user
       can :logout, :users
       can :update, :users, :id => user.id
