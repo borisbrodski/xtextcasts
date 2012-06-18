@@ -1,3 +1,9 @@
+<% content_for :google_meta do %>
+  <meta itemprop="name" content="XtextCasts - <%= h @episode.name %>">
+  <meta itemprop="description" content="<%= h @episode.description %>">
+  <meta itemprop="image" content="http://xtextcasts.org/assets/episodes/stills/<%= @episode.asset_name %>.png">
+<% end %>
+
 <% title @episode.full_name, false %>
 
 <div id="episode" class="<%= "legacy" if @episode.legacy? %>">
@@ -29,7 +35,18 @@
       <% end %>
     </div>
     <div class="social">
-      <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= episode_url(@episode) %>" data-text="Watching <%= @episode.name %> on RailsCasts" data-count="horizontal" data-via="XtextCasts">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      <script type="text/javascript">
+         (function() {
+           var po = document.createElement('script');
+           po.type = 'text/javascript';
+           po.async = true;
+           po.src = 'https://apis.google.com/js/plusone.js';
+           var s = document.getElementsByTagName('script')[0];
+           s.parentNode.insertBefore(po, s);
+         })();
+      </script>
+      <g:plusone size="medium"></g:plusone>
+      <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= episode_url(@episode) %>" data-text="Watching <%= @episode.name %> on XtextCasts" data-count="horizontal" data-via="XtextCasts">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     </div>
     <ul class="downloads horizontal">
       <li>Download:</li>

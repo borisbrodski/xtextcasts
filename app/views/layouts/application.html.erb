@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html itemscope itemtype="http://schema.org/Article">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><%= content_for?(:title) ? yield(:title) : "Xtext Screencasts" %> - XtextCasts</title>
     <meta name="description" content="Short Xtext screencasts containing tips, tricks and tutorials. Great for both novice and experienced java developers." />
     <meta name="keywords" content="java, java ee, Xtext, Xtend, screencasts, xtextcast, xtextcasts, tips, tricks, tutorials, training, podcasts, programming, dsl, code generation" />
+    <%= yield :google_meta %>
     <%- if false -%>
     <!--    <link rel="alternate" type="application/rss+xml" title="Episodes RSS" href="http://feeds.feedburner.com/railscasts" /> -->
     <%- end -%>
@@ -38,7 +39,7 @@ TODO Add itunes link
         </li>
         <% end %>
         <li>
-          <%= link_to image_tag("icons/twitter.png", :size => "34x34"), "http://twitter.com/BorisBrodski" %>
+          <%= link_to image_tag("icons/twitter.png", :size => "34x34"), "http://twitter.com/XtextCasts" %>
           <span class="name">follow on Twitter</span>
         </li>
         <% if false %>
