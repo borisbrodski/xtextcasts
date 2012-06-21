@@ -44,9 +44,9 @@ module ApplicationHelper
     xml = Builder::XmlMarkup.new
     xml.video :width => options[:width], :height => options[:height], :poster => options[:poster], :controls => "controls", :preload => "none" do
       xml.source :src => "#{path}.mp4", :type => "video/mp4"
+      xml.source :src => "#{path}.ogv", :type => "video/ogg"
       xml.source :src => "#{path}.m4v", :type => "video/mp4"
       xml.source :src => "#{path}.webm", :type => "video/webm"
-      xml.source :src => "#{path}.ogv", :type => "video/ogg"
     end.html_safe
   end
 
