@@ -31,8 +31,8 @@ end
 Railscasts::Application.routes.draw do
   resources :emails
 
-  root :to => redirect("/site-under-construction/index.html", :status => 307), :constraints => BetaRedirectConstraint.new
-  match '*path' => redirect("/site-under-construction/index.html", :status => 307), :constraints => BetaRedirectConstraint.new
+#  root :to => redirect("/site-under-construction/index.html", :status => 307), :constraints => BetaRedirectConstraint.new
+#  match '*path' => redirect("/site-under-construction/index.html", :status => 307), :constraints => BetaRedirectConstraint.new
 
   root :to => "episodes#index"
 
