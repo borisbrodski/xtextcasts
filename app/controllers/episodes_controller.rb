@@ -28,7 +28,9 @@ class EpisodesController < ApplicationController
   end
 
   def create
+puts "TIME before: #{Time.now}"
     @episode.load_file_sizes
+puts "TIME after : #{Time.now}"
     if @episode.save
       redirect_to @episode, :notice => "Successfully created episode."
     else
