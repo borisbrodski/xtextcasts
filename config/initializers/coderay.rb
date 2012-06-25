@@ -1,0 +1,1 @@
+require "coderay/scanners/xtend"
