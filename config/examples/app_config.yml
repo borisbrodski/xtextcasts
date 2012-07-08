@@ -3,5 +3,3 @@ session_secret: 40bc73b6a7be494f7de7d9d3b27a3cd81b1d7857f1fbc48445222d728677cb23
 thinking_sphinx: false
 github_id: oauth_id
 github_secret: oauth_secret
-init_beta_code: code1
-beta_code: code2

@@ -8,7 +8,6 @@ class Ability
     can :access, :info
     can :create, :feedback_messages
     can [:read, :create, :login, :unsubscribe], :users
-    can :create, :emails
 
     can :failure, :users
     if user
