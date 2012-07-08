@@ -1,6 +1,11 @@
 #!/bin/bash
 
-FORMATS="mp4 ogv webm m4v"
+if [[ "$1" == "--dry-run" ]] ; then
+  shift 1
+  SCP="echo scp"
+else
+  SCP=scp
+fi
 
 BASE_DIR=$(dirname $(readlink -f $0))
 if [ "x$1" == "x" ] ; then
@@ -16,26 +21,33 @@ fi
 
 EPISODE_ZIP="$EPISODE_DIR/$EPISODE_DIR.zip"
 EPISODE_STILL="$EPISODE_DIR/$EPISODE_DIR.png"
-if [ ! -f "$EPISODE_STILL" ] ; then
-  echo "Episode still not found: '$EPISODE_STILL'"
-  exit 1
-fi
+#if [ ! -f "$EPISODE_STILL" ] ; then
+#  echo "Episode still not found: '$EPISODE_STILL'"
+#  exit 1
+#fi
 
 
-NAME=$(echo Homepage/public/assets/episodes/stills/$1*.png | sed 's/.*\/\([^/]*\)\..*/\1/')
-if [ "x$NAME" == "x" ] ; then
-  echo "No episode found"
-  exit 1
+#NAME=$(echo Homepage/public/assets/episodes/stills/$1*.png | sed 's/.*\/\([^/]*\)\..*/\1/')
+#if [ "x$NAME" == "x" ] ; then
+#  echo "No episode found"
+#  exit 1
+#fi
+
+if [ -f "$EPISODE_STILL" ] ; then
+  $SCP "$EPISODE_STILL" xtextcasts@xtextcasts.org:xtextcasts/public/assets/episodes/stills/
 fi
 
-scp "$EPISODE_STILL" xtextcasts@xtextcasts.org:xtextcasts/public/assets/episodes/stills/
-if [ -f "$EPISODE_DIR/$EPISODE_DIR.zip" ] ; then
-  scp "$EPISODE_DIR/$EPISODE_DIR.zip" xtextcasts@xtextcasts.org:xtextcasts/public/assets/episodes/sources/$EPISODE_DIR.zip
+if [ -f "$EPISODE_ZIP" ] ; then
+  $SCP "$EPISODE_ZIP" xtextcasts@xtextcasts.org:xtextcasts/public/assets/episodes/sources/
 fi
+
+shift 1
+
+FORMATS=${@-"mp4 ogv webm m4v"}
 
 for ext in $FORMATS ; do
   if [ -f "$EPISODE_DIR/output/output.$ext" ] ; then
-    scp "$EPISODE_DIR/output/output.$ext" xtextcasts@xtextcasts.org:xtextcasts/public/assets/episodes/videos/$EPISODE_DIR.$ext
+    $SCP "$EPISODE_DIR/output/output.$ext" xtextcasts@xtextcasts.org:xtextcasts/public/assets/episodes/videos/$EPISODE_DIR.$ext
   fi
 done
 
