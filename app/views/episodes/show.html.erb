@@ -60,22 +60,26 @@
       <% end %>
     </div>
     <div class="social">
-      <script type="text/javascript">
-         (function() {
-           var po = document.createElement('script');
-           po.type = 'text/javascript';
-           po.async = true;
-           po.src = 'https://apis.google.com/js/plusone.js';
-           var s = document.getElementsByTagName('script')[0];
-           s.parentNode.insertBefore(po, s);
-         })();
-      </script>
-      <g:plusone size="medium"></g:plusone>
+      <div class="socialelement">
+        <script type="text/javascript">
+           (function() {
+             var po = document.createElement('script');
+             po.type = 'text/javascript';
+             po.async = true;
+             po.src = 'https://apis.google.com/js/plusone.js';
+             var s = document.getElementsByTagName('script')[0];
+             s.parentNode.insertBefore(po, s);
+           })();
+        </script>
+        <g:plusone size="medium"></g:plusone>
+      </div>
+      <div class="socialelement">
+        <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= episode_url(@episode) %>" data-text="Watching <%= @episode.name %> on XtextCasts" data-count="horizontal" data-via="XtextCasts">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      </div>
       <%- if false -%>
         Facebook Like button - disabled cause very slow
         <div class="fb-like" data-send="false" data-layout="button_count" data-width="0" data-show-faces="true"></div>
       <%- end -%>
-      <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= episode_url(@episode) %>" data-text="Watching <%= @episode.name %> on XtextCasts" data-count="horizontal" data-via="XtextCasts">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     </div>
     <ul class="downloads horizontal">
       <li>Download:</li>

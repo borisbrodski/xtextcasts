@@ -587,8 +587,14 @@ label.check_box {
 
 #episode .info .social {
   position: absolute;
-  right: -14px;
+  right: -30px;
   bottom: 18px;
+}
+
+#episode .info .social .socialelement {
+  display: block;
+  float: right;
+  clear: both;
 }
 
 #episode .info .downloads {
