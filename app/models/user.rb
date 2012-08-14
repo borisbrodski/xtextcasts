@@ -7,11 +7,11 @@ class User < ActiveRecord::Base
   def self.create_from_omniauth(omniauth)
     User.new.tap do |user|
       user.github_uid = omniauth["uid"]
-      user.github_username = omniauth["user_info"]["nickname"]
-      user.email = omniauth["user_info"]["email"]
-      user.name = omniauth["user_info"]["name"]
-      user.site_url = omniauth["user_info"]["urls"]["Blog"] if omniauth["user_info"]["urls"]
-      user.gravatar_token = omniauth["extra"]["user_hash"]["gravatar_id"] if omniauth["extra"] && omniauth["extra"]["user_hash"]
+      user.github_username = omniauth["info"]["nickname"]
+      user.email = omniauth["info"]["email"]
+      user.name = omniauth["info"]["name"]
+      user.site_url = omniauth["info"]["urls"]["Blog"] if omniauth["info"]["urls"]
+      user.gravatar_token = omniauth["extra"]["raw_info"]["gravatar_id"] if omniauth["extra"] && omniauth["extra"]["raw_info"]
       user.email_on_reply = true
       user.save!
     end
