@@ -30,6 +30,7 @@ class CodeFormatter
 
   def language(path)
     case path.to_s.strip
+    when /\.spec$/ then "xtend"
     when /\.yml$/ then "yaml"
     when /\.js$/ then "java_script"
     when /\.scss$/ then "css"
