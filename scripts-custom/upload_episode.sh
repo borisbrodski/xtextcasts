@@ -10,6 +10,7 @@ fi
 BASE_DIR=$(dirname $(readlink -f $0))
 if [ "x$1" == "x" ] ; then
   echo "Provide episode index. For example: $0 001"
+  echo "Use '$0 001 -' to skip video upload"
   exit 1
 fi
 
