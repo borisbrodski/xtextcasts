@@ -1,5 +1,9 @@
 #!/bin/bash
 
+BLENDER_DIR=blender-2.62
+#BLENDER_DIR=blender-2.64-linux-glibc27-x86_64
+#BLENDER_DIR=blender-2.64a-linux-glibc27-x86_64
+
 BASE_DIR=$(dirname $(readlink -f $0))
 if [ "x$1" == "x" ] ; then
   echo "Provide episode index. For example: $0 001"
@@ -22,4 +26,4 @@ OUT_FILE=$EPISODE_DIR/output/episode-out-of-blender.avi
 if [ -f "$OUT_FILE" ] ; then
   mv "$OUT_FILE" "$OUT_FILE.backup"
 fi
-time bash -c "$BASE_DIR/../../blender-2.62/blender -b '$BLENDER_FILE' -t 8 -a | grep 'Writing frame'"
+time bash -c "$BASE_DIR/../../$BLENDER_DIR/blender -b '$BLENDER_FILE' -t 8 -a | grep 'Writing frame'"
