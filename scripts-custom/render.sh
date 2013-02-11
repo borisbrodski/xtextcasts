@@ -1,6 +1,7 @@
 #!/bin/bash
 
-BLENDER_DIR=blender-2.62
+#BLENDER_DIR=blender-2.62
+BLENDER_DIR=blender-2.65a-linux-glibc211-x86_64
 #BLENDER_DIR=blender-2.64-linux-glibc27-x86_64
 #BLENDER_DIR=blender-2.64a-linux-glibc27-x86_64
 
@@ -26,4 +27,4 @@ OUT_FILE=$EPISODE_DIR/output/episode-out-of-blender.avi
 if [ -f "$OUT_FILE" ] ; then
   mv "$OUT_FILE" "$OUT_FILE.backup"
 fi
-time bash -c "$BASE_DIR/../../$BLENDER_DIR/blender -b '$BLENDER_FILE' -t 8 -a | grep 'Writing frame'"
+time bash -c "$BASE_DIR/../../$BLENDER_DIR/blender -b '$BLENDER_FILE' -t 8 -a | grep 'Append frame'"
