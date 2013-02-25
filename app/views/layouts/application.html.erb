@@ -6,9 +6,7 @@
     <meta name="description" content="Short Xtext screencasts containing tips, tricks and tutorials. Great for both novice and experienced java developers." />
     <meta name="keywords" content="java, java ee, Xtext, Xtend, screencasts, xtextcast, xtextcasts, tips, tricks, tutorials, training, podcasts, programming, dsl, code generation" />
     <%= yield :google_meta %>
-    <%- if false -%>
-    <!--    <link rel="alternate" type="application/rss+xml" title="Episodes RSS" href="http://feeds.feedburner.com/railscasts" /> -->
-    <%- end -%>
+    <link rel="alternate" type="application/rss+xml" title="Episodes RSS" href="http://feeds.feedburner.com/XtextCasts" />
     <%= stylesheet_link_tag "application", "coderay" %>
     <%= javascript_include_tag "jquery.min", "rails", "http://cdn.sublimevideo.net/js/b4ae8p1n.js", "application" %>
     <%= csrf_meta_tag %>
@@ -49,13 +47,10 @@ TODO Add Facebook link
           <span class="name">follow on Facebook</span>
         </li>
         <% end %>
-        <% if false %>
-TODO Add Facebook link
         <li>
-          <%= link_to image_tag("icons/rss.png", :size => "34x34"), "http://feeds.feedburner.com/railscasts" %>
+          <%= link_to image_tag("icons/rss.png", :size => "34x34"), "http://feeds.feedburner.com/XtextCasts" %>
           <span class="name">subscribe to RSS feed</span>
         </li>
-        <% end %>
       </ul>
     </div>
 
