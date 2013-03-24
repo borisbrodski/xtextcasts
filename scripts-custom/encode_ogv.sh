@@ -10,7 +10,7 @@ BASE_DIR=$(dirname $(readlink -f $0))
 MP4_TMP_FILE="$TMP_FILE.mp4"
 MP4_QT_FASTSTART_TMP_FILE="$TMP_FILE.qt-faststart.mp4"
 
-options="-vcodec libx264 -b:v 1024k -flags +loop+mv4 -cmp 256 \
+options="-vcodec libx264 -b:v 645k -flags +loop+mv4 -cmp 256 \
    -partitions +parti4x4+parti8x8+partp4x4+partp8x8+partb8x8 \
    -me_method hex -subq 7 -trellis 1 -refs 5 -bf 3 \
     -coder 1 -me_range 16 \

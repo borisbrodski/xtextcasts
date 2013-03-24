@@ -8,8 +8,8 @@ BASE_DIR="$(dirname $(readlink -f $0))"
 . $BASE_DIR/encode_base.sh
 
 
-ffmpeg -y -i "$IN_FILE"       -vcodec libx264 -b 117k -threads 0 -pass 1 "$OUT_FILE"
-ffmpeg -y -i "$IN_FILE" -ac 1 -vcodec libx264 -b 117k -threads 0 -pass 2 "$OUT_FILE"
+ffmpeg -y -i "$IN_FILE"       -vcodec libx264 -b:v 117k -threads 0 -pass 1 "$OUT_FILE"
+ffmpeg -y -i "$IN_FILE" -ac 1 -vcodec libx264 -b:v 117k -threads 0 -pass 2 "$OUT_FILE"
 
 
 #ffmpeg    -i 0001-4408.avi                            -vcodec libx264 -vpre libx264-veryslow_firstpass -pass 1 -threads 0 -f m4v -s 640x400 output.m4v
