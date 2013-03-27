@@ -72,10 +72,11 @@ function set_prompt {
   if [[ "$CHUNK_NAME_STR" == "" ]] ; then
     CHUNK_NAME_STR="<not set>"
   fi
+  CHUNK_FILENAME="$EPISODE_NUMBER-$CHUNK_NUMBER_STR-$CHUNK_NAME_STR"
   PS1="$EPISODE_NUMBER-$CHUNK_NUMBER_STR-$CHUNK_NAME_STR $STATE_STR $ "
 }
 
-function record {
+function rec {
   if [[ "$1" == "" ]] ; then
     echo "Usage: record <chunk_name>"
     return
@@ -95,14 +96,44 @@ function record {
   CHUNK_NAME="$1"
   CHUNK_NUMBER=$(( $CHUNK_NUMBER + 1 ))
 }
+function c {
+  if [[ $STATE != $STATE_RECORDING ]] ; then
+    echo "Not in recording state. Issue record <chunk_name> first"
+    return
+  fi
+  if [[ "$CHUNK_NAME" == "" ]] ; then
+    echo "Chunk name not set"
+    return
+  fi
+  echo "Recording: $CHUNK_FILENAME"
+  TOP=51 ../../Homepage/scripts-custom/capture.sh "$CHUNK_FILENAME.mp4"
+}
 
 function rerecord {
   STATE=$STATE_RECORDING
 }
-echo 'new <name> - set name for new chunk to record' 
-
+function f {
+  if [[ $STATE != $STATE_RECORDING ]] ; then
+    echo "Not in recording state."
+    return
+  fi
+  STATE=$STATE_COMPLETED
+  ../../Homepage/scripts-custom/remove_noise.sh "$CHUNK_FILENAME.mp4"
+}
+function help {
+  echo "rec <chunk_name>    - set new chunk to record"
+  echo "rerecord            - mark chunk as recorded"
+  echo "c                   - capture chunk"
+  echo "f                   - finish chunk"
+}
 
 function precmd {
   init_prompt
   set_prompt
 }
+
+help
+
+alias record=rec
+alias capture=c
+alias finish=f

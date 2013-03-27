@@ -16,7 +16,8 @@ FILE=$last
 
 if [[ -f "$FILE" ]]; then
   echo "Backup existing file: $FILE"
-  mv "$FILE" "OLD-$FILE"
+  mkdir -p tmp-capture
+  mv "$FILE" "tmp-capture/$FILE"
 fi
 
 ffmpeg -f alsa -ac 1 -i pulse -acodec pcm_s16le -f x11grab -r 24 -s 960x600 -i :0.0+1,$TOP -vcodec libx264 -preset slow -crf 15 -y $*

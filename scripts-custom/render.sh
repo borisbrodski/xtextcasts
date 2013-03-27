@@ -1,9 +1,13 @@
 #!/bin/bash
 
 #BLENDER_DIR=blender-2.62
-BLENDER_DIR=blender-2.65a-linux-glibc211-x86_64
+#BLENDER_DIR=blender-2.65a-linux-glibc211-x86_64
 #BLENDER_DIR=blender-2.64-linux-glibc27-x86_64
 #BLENDER_DIR=blender-2.64a-linux-glibc27-x86_64
+
+BLENDER_DIR=blender-2.65a-linux-glibc211-i686
+
+
 
 BASE_DIR=$(dirname $(readlink -f $0))
 if [ "x$1" == "x" ] ; then

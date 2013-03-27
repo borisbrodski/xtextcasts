@@ -5,9 +5,10 @@ if [[ "$1" == "" ]] ; then
   exit 1
 fi
 
-NOISE_REMOVAL_FACTOR=0.21
+NOISE_REMOVAL_FACTOR=0.20
 
 
+BACKUP_DIR=tmp-noise-removal
 TMP=/tmp
 VIDEO_WITH_NOISE="$1"
 AUDIO_WITH_NOISE="$TMP/video-with-noise.wav"
@@ -15,7 +16,7 @@ AUDIO_SAMPLE="$TMP/audio-sample.wav"
 AUDIO_WITHOUT_NOISE="$TMP/audio-without-noise.wav"
 VIDEO_WITHOUT_NOISE="$TMP/video-without-noise.mp4"
 NOISE_PROFILE="$TMP/noise.prof"
-OLD_VIDEO="${VIDEO_WITH_NOISE%%.*}-original.mp4"
+OLD_VIDEO="$BACKUP_DIR/${VIDEO_WITH_NOISE%%.*}.mp4"
 SAMPLE_LENGTH_IN_SECONDS=3
 SAMPLE_OFFSET_FROM_END=1
 LOG="$TMP/remove-noise-log-$VIDEO_WITH_NOISE.txt"
@@ -31,7 +32,9 @@ if [ ! -f "$VIDEO_WITH_NOISE" ] ; then
   exit 1
 fi
 
-DURATION=$(ffprobe -loglevel error -show_streams "$VIDEO_WITH_NOISE" | grep duration | head -n 1 | cut -f2 -d=)
+mkdir -p "$BACKUP_DIR"
+
+DURATION=$(ffprobe -loglevel error -show_streams "$VIDEO_WITH_NOISE" | grep 'duration=' | head -n 1 | cut -f2 -d=)
 SAMPLE_START_OFFSET=$((${DURATION%.*} - $SAMPLE_LENGTH_IN_SECONDS - $SAMPLE_OFFSET_FROM_END))
 echo "Removing noise: '$VIDEO_WITH_NOISE' ($DURATION seconds)"
 rm -rf "$LOG"
@@ -40,6 +43,7 @@ echo "- Extract audio track ..."
 ffmpeg -y -i "$VIDEO_WITH_NOISE" -ac 1 "$AUDIO_WITH_NOISE" 2>> "$LOG" || die
 
 echo "- Cutting $SAMPLE_LENGTH_IN_SECONDS seconds ..."
+echo ffmpeg -y -i "$VIDEO_WITH_NOISE" -ac 1 -vn -ss $SAMPLE_START_OFFSET -t $SAMPLE_LENGTH_IN_SECONDS "$AUDIO_SAMPLE" 2>> "$LOG" || die
 ffmpeg -y -i "$VIDEO_WITH_NOISE" -ac 1 -vn -ss $SAMPLE_START_OFFSET -t $SAMPLE_LENGTH_IN_SECONDS "$AUDIO_SAMPLE" 2>> "$LOG" || die
 
 echo "- Generating noise profile ..."
