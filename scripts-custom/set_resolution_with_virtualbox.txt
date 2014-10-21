@@ -1,0 +1,4 @@
+xrandr --newmode "xtextcasts"   63.50  960 1072 1176 1328  600 771 775 798 -hsync +vsync
+xrandr --addmode VBOX0 "xtextcasts"
+xrandr --output VBOX0 --mode "xtextcasts"
+

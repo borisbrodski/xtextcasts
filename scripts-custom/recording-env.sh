@@ -122,9 +122,10 @@ function f {
 }
 function help {
   echo "rec <chunk_name>    - set new chunk to record"
-  echo "rerecord            - mark chunk as recorded"
+  echo "rerecord            - record last chuck again"
   echo "c                   - capture chunk"
   echo "f                   - finish chunk"
+  echo "v                   - view last recorded chunk"
 }
 
 function precmd {
@@ -137,3 +138,4 @@ help
 alias record=rec
 alias capture=c
 alias finish=f
+alias v='vlc $CHUNK_FILENAME.mp4'

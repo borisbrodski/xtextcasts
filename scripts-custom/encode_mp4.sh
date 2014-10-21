@@ -15,9 +15,9 @@ options="-vcodec libx264 -b:v 265k -flags +loop+mv4 -cmp 256 \
          -g 250 -keyint_min 25 -sc_threshold 40 -i_qfactor 0.71 -qmin 10\
    -qmax 51 -qdiff 4"
 
-ffmpeg -y -i "$IN_FILE" -an -pass 1 -threads 2 $options "$TMP_FILE"
+avconv -y -i "$IN_FILE" -an -pass 1 -threads 2 $options "$TMP_FILE"
 
-ffmpeg -y -i "$IN_FILE" -acodec libfaac -ar 44100 -ab 96k -ac 1 -pass 2 -threads 2 $options "$TMP_FILE"
+avconv -y -i "$IN_FILE" -acodec aac -strict experimental -ac 1 -pass 2 -threads 2 $options "$TMP_FILE"
 
 qt-faststart "$TMP_FILE" "$OUT_FILE"
 
