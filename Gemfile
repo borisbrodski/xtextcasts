@@ -41,3 +41,5 @@ end
 group :development do
   gem 'pg'
 end
+
+gem "thin"
